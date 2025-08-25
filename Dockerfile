@@ -1,6 +1,7 @@
 FROM python:3.11-slim
 
 
+
 # Thư viện hệ thống cần cho onnx/pillow
 RUN apt-get update && apt-get install -y libgl1 libglib2.0-0 && rm -rf /var/lib/apt/lists/*
 
@@ -24,3 +25,5 @@ RUN pip install --no-cache-dir filetype
 RUN pip install --no-cache-dir "rembg[cli]"
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port $PORT --log_level info"]
+
+CMD ["sh","-c","rembg s --host 0.0.0.0 --port 7000 --log_level info"]
