@@ -23,3 +23,4 @@ CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
 RUN pip install --no-cache-dir filetype
 RUN pip install --no-cache-dir "rembg[cli]"
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
+CMD ["sh","-c","rembg s --host 0.0.0.0 --port $PORT --log_level info"]
