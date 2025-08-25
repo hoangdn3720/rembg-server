@@ -26,4 +26,12 @@ RUN pip install --no-cache-dir "rembg[cli]"
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port $PORT --log_level info"]
 
-CMD ["sh","-c","rembg s --host 0.0.0.0 --port 7000 --log_level info"]
+CMD 
+["sh","-c","rembg s --host 0.0.0.0 --port 7000 --log_level info"]
+
+# Install dependencies for FastAPI wrapper and requests
+RUN pip install --no-cache-dir fastapi "uvicorn[standard]" python-multipart requests
+# Copy the FastAPI app into the container
+COPY app.py /app.py
+# Start the FastAPI server with uvicorn, using PORT env var or default to 7000
+CMD ["sh","-c","uvicorn app:app --host 0.0.0.0 --port ${PORT:-7000}"]
