@@ -15,3 +15,6 @@ EXPOSE 7000
 CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
 RUN pip install --no-cache-dir onnxruntime
 CMD ["sh","-c","pmbg s --host 0.0.0.0 --port ${PORT} --log_level info"]
+
+RUN pip install --no-cache-dir click
+CMD ["sh","-c","rembg s --host 0.0.0.0 --port ${PORT} --log_level info"]
