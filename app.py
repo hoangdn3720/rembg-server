@@ -8,7 +8,7 @@ from fastapi.responses import StreamingResponse
 from rembg import remove, new_session
 
 # Create rembg session with a small model (u2netp) to reduce memory usage
-MODEL_NAME = os.getenv("REMBG_MODEL", "u2netp")
+MODEL_NAME = os.getenv("REMBG_MODEL", "u2net
 session = new_session(MODEL_NAME)
 
 app = FastAPI()
